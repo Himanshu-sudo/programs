@@ -1,0 +1,27 @@
+\vspace{2in}
+\begin{abstract}
+
+In a cloud data center, the client requests are catered
+by placing the services in its servers. Such services are deployed through a sandboxing platform to ensure proper isolation
+among services from different users. Due to the lightweight
+nature, containers have become increasingly popular to support
+such sandboxing. However, for supporting effective and efficient
+data center resource usage with minimum resource footprints,
+improving the containers’ consolidation ratio is significant for
+the cloud service providers. Towards this end, in this paper,
+we propose an exciting direction to significantly boost up the
+consolidation ratio of a data-center environment by effectively
+managing the containers’ states. We observe that many cloud based application services are event-triggered, so they remain
+inactive unless some external service request comes. We exploit
+the fact that the containers remain in an idle state when the
+underlying service is not active, and thus such idle containers
+can be checkpointed unless an external service request comes.
+However, the challenge here is to design an efficient mechanism
+such that an idle container can be resumed quickly to prevent
+the loss of the application’s quality of service (QoS). We have
+implemented the system, and the evaluation is performed in
+Amazon Elastic Compute Cloud. The experimental results have
+shown that the proposed algorithm can manage the containers’
+states, ensuring the increase of consolidation ratio.
+
+\end{abstract} 

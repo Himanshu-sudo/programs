@@ -1,0 +1,310 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{multicol}
+% only for pdflatex
+% \input{glyphtounicode}
+
+% fontawesome
+\usepackage{fontawesome5}
+
+% fixed width
+\usepackage[scale=0.90,lf]{FiraMono}
+
+% light-grey
+\definecolor{light-grey}{gray}{0.83}
+\definecolor{dark-grey}{gray}{0.3}
+\definecolor{text-grey}{gray}{.08}
+
+\DeclareRobustCommand{\ebseries}{\fontseries{eb}\selectfont}
+\DeclareTextFontCommand{\texteb}{\ebseries}
+
+% custom underilne
+\usepackage{contour}
+\usepackage[normalem]{ulem}
+\renewcommand{\ULdepth}{1.8pt}
+\contourlength{0.8pt}
+\newcommand{\myuline}[1]{%
+  \uline{\phantom{#1}}%
+  \llap{\contour{white}{#1}}%
+}
+
+
+% custom font: helvetica-style
+\usepackage{tgheros}
+\renewcommand*\familydefault{\sfdefault} 
+%% Only if the base font of the document is to be sans serif
+\usepackage[T1]{fontenc}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{0in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting - serif
+% \titleformat{\section}{
+%   \vspace{2pt} \scshape \raggedright\large % header section
+% }{}{0em}{}[\color{black} \titlerule \vspace{-5pt}]
+
+% TODO EBSERIES
+% sans serif sections
+\titleformat {\section}{
+    \bfseries \vspace{2pt} \raggedright \large % header section
+}{}{0em}{}[\color{light-grey} {\titlerule[2pt]} \vspace{-4pt}]
+
+% only for pdflatex
+% Ensure that generate pdf is machine readable/ATS parsable
+% \pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-1pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & {\color{dark-grey}\small #2}\vspace{1pt}\\ % top row of resume entry
+      \textit{#3} & {\color{dark-grey} \small #4}\\ % second row of resume entry
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      #1 & {\color{dark-grey}} \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+% CHANGED default leftmargin  0.15 in
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0pt}}
+
+\color{text-grey}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge Himanshu Dhakate} \\ \vspace{5pt}
+    \small \faPhone* \texttt{+91-9325452858} \hspace{1pt} $|$
+    \hspace{1pt} \faEnvelope \hspace{2pt} \texttt{himanshudhakate07@gmail.com} \hspace{1pt} $|$ 
+    \hspace{1pt} \faMapMarker* \hspace{2pt}\texttt{Nagpur, Maharashtra}
+    \\ \vspace{-3pt}
+\end{center}
+
+%-----------EXPERIENCE-----------
+\section{EXPERIENCE}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Growthpal}{3-May-2021 -- 3-Aug-2021}
+      {SWE-Intern}{Pune,Maharashtra}
+      \resumeItemListStart
+        \resumeItem{Worked on \textbf{Data aggregation} and \textbf{processing pipeline for Data Warehouse.}}
+        \resumeItem{Worked on \textbf{architecture design} for analytics program for accessing data.}
+         \resumeItem{Built pipelines to bring data from \textbf{AWS Athena} to \textbf{Elastic Search}.}
+        \resumeItem{Built the pipeline for \textbf{web-crawling} and periodically updating the data.}
+        \resumeItem{Worked on serving ad-hoc data requests from the business team.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Microsoft Technology Associate}{21-Jan-2019}
+      {Student Trainee}{Pune,Maharashtra}
+      \resumeItemListStart
+        \resumeItem{Learnt some basics of \textbf{Cybersecurity} and \textbf{security layers}.}
+        \resumeItem{Learnt about \textbf{operating system security}.}
+        \resumeItem{Learnt about \textbf{Network Security} and \textbf{security software}.}
+
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+
+\section{PROJECTS}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Path Finding Visualizer}} {}
+          \resumeItemListStart
+            \resumeItem{Visualizing tool that shows us how path finding algorithms work.}
+            \resumeItem{The objective is to show the working of a path finding algorithm visualizing path from start node to the end node.}
+	\resumeItem{User can set the position of the start node and end node in given cells.}
+	\resumeItem{User can draw walls by clicking or holding mouse over cells. The walls drawn will be avoided by the algorithm.}
+	\resumeItem{Beautiful animations to show how path is visualized by an algorithm.}
+
+	\resumeItem{Once the algorithm has found the end cell the optimal path will be illuminated avoiding the obstacles.}
+          \resumeItemListEnd
+          
+        \resumeProjectHeading
+          {\textbf{Controlled Conduct Employee System}}{}
+          \resumeItemListStart
+	\resumeItem{A distributed application, developed to maintain the details of employees working in any organization.}
+            \resumeItem{Streamlined daily operations.}
+            \resumeItem{Crucial work-related and important personal information about an employee. In a nutshell, it is an online inventory of all employees of an organization.}
+ 	\resumeItem{Embedded CRM modules using advanced DBMS integration driver.}
+	\resumeItem{A well-designed database to store employee information.}
+          \resumeItemListEnd
+          
+      
+          
+    \resumeSubHeadingListEnd
+
+
+
+%-----------EDUCATION-----------
+\section {EDUCATION}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {National Institute of Technology, Karnataka, Surathkal}{2021 - Present}
+      {Masters of Technology}{Computer Science and Engineering}
+    \resumeSubheading
+      {D.Y. Patil College of Engineering, Pune}{2017 - 2021}
+      {Bachelor of Engineering}{Information Technology}
+      	\resumeItemListStart
+    	\resumeItem {\textbf{CGPA}: 8.39 / 10}
+       
+        \resumeItemListEnd
+	\resumeSubheading
+      {P.M.B.S Junior College, Nagpur}{2017}
+      {Higher Secondary Certificate}{Science}
+      	\resumeItemListStart
+    	\resumeItem {\textbf{Percentage}: 71.23 / 100}
+       
+        \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{SKILLS}
+ \begin{itemize}[leftmargin=0in, label={}]
+    \small{\item{
+     \textbf{Programming Languages} {: Python, C, C++, HTML/CSS, SQL, Java }\vspace{2pt} \\
+     \textbf{Technical}     {: Data Structures and Algorithms, OOPS, Competitive Programming, Web-Scraping, Data analysis, Machine learning}
+    }}
+ \end{itemize}
+
+
+%-------------------------------------------
+%-----------Achievements-----------
+\section {ACHIEVEMENTS}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Graduate Aptitude Test In Engineering(GATE)}{Feb 2021}
+      {All India Rank 575 among 101922 candidates}{Computer Science and Engineering}
+	\resumeItemListStart
+    	\resumeItem {\textbf{Score}: 722 / 1000}
+       
+        \resumeItemListEnd
+    \resumeSubheading
+      {TCS National Qualifier Test}{Oct 2020}
+      {Scored 1420.34 / 1800 in Aptitude}{}
+      	
+	\resumeSubheading
+      {Microsoft Technology Associate}{Jan 2019}
+      {Passed MTA exam in Security Fundamentals}{}
+      	
+  \resumeSubHeadingListEnd
+
+%-----------Publications-----------
+\section {PUBLICATION}
+  \begin{itemize}
+	\item Bhavika Pawani,  \textbf{Himanshu Dhakate},  Hrishikesh Hajare,  Yusuf Vanwala,   "PATH FINDING VISUALIZER", IJRAR - International Journal of Research and Analytical Reviews (IJRAR), E-ISSN 2348-1269, P- ISSN 2349-5138, Volume.8, Issue 2, Page No pp.273-276, May 2021, Available at : {\href{http://www.ijrar.org/IJRAR21B1503.pdf}{\myuline {link}}}
+\end{itemize}
+%-----------CERTIFICATIONS-----------
+\section {CERTIFICATIONS}
+ \begin{itemize}
+	\item \textbf{Microsoft Technology Associate} Security Fundamentals
+	\item \textbf{Python Programming} Udemy
+	\item \textbf{Java Programming} Udemy
+\end{itemize}
+%---------------Interests-------------------------
+\section{INTERESTS}
+\begin{multicols}{2}
+
+\begin{itemize}
+\item Machine Learning
+\item Data Science
+\item Artificial Intelligence
+\item Competitive Programming
+\item Linux
+\end{itemize}
+\vfill
+\columnbreak
+\begin{itemize}
+\item Cybersecurity
+\item Networking
+\item Web development
+\item Algorithms
+\item Cloud Computing
+\end{itemize}
+\vfill
+\end{multicols}
+%-------------Languages---------------------
+\section{LANGUAGES}
+\begin{multicols}{3}
+\begin{itemize}
+\item English
+\end{itemize}
+\vfill\null
+\columnbreak
+\begin{itemize}
+\item Hindi
+\end{itemize}
+\vfill\null
+\columnbreak
+\begin{itemize}
+\item Marathi
+\end{itemize}
+
+\end{multicols}
+
+
+\end{document}

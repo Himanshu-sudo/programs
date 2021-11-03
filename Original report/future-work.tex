@@ -1,0 +1,70 @@
+\chapter{Performance Evaluation}
+
+We performed the experiments in Amazon EC2 (https://aws.
+amazon.com/ec2/) using python 2.7.13.
+\subsection {Implementation Details}
+The cloud servers have Ubuntu 18.04 long-term support
+(LTS) (https://www.ubuntu.com/) operating system. Also, we
+use Docker [24] as the container engine in the servers. The
+docker version taken for the implementation is 17.03.2-ce.
+To perform the docker checkpoint, the docker experimental
+feature is enabled and CRIU (https://criu.org/Main Page) is
+installed in the servers. Docker uses CRIU [25] to manage the
+lifecycle of processes running inside its containers (https://criu.
+org/Docker). We set up the shared storage using NFS (https://help.ubuntu.com/lts/serverguide/network-file-system.html) to
+make the checkpointed files available in different servers. We
+have taken zookeeper application (https://zookeeper.apache.
+org/), PHP web application (https://www.php.net/) and redis
+application (https://redis.io/) for evaluation. We have analysed
+the output of the docker stats command to check the resource
+status of a container. We show the values of the parameters
+taken in Amazon EC2 experiments in Table I. The topology
+considered for these experiments is shown in Figure 3.
+\begin{table}[htbp]
+\caption{PARAMETERS IN AMAZON EC2 EXPERIMENT}
+\begin{center}
+\begin{tabularx}{0.7\textwidth} { 
+  | >{\raggedright\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\raggedleft\arraybackslash}X | }
+ \hline
+ \textbf{Parameter} & \textbf{Value}  \\
+ \hline
+ Number of Amazon EC2 virtual
+machine instances or worker nodes  & 10    \\
+\hline
+Processor of a worker node & 2.5 GHz Intel Xeon Family \\ 
+\hline 
+Number of vCPU in a worker node & 1 \\ 
+\hline 
+Storage of a worker node & 8 GB \\
+\hline 
+Operating System used & Ubuntu Server 18.04 LTS \\
+\hline
+Maximum available RAM of the
+worker node & 680 MB \\
+\hline
+Maximum available RAM of the
+manager node & 1780 MB \\
+\hline
+\end{tabularx}
+\label{tab1}
+\end{center}
+\end{table}
+\subsection{Competing Heuristics}
+We consider Execution Container Placement and Task assignment Algorithm (EPTA) [19] as a baseline. In EPTA,
+the microservice controller queries a small local region for
+available physical resources. The execution containers are
+placed in the server, which has less node cost as well as
+less link cost. The microservice controller requests physical
+resources and waits for responses from the physical machines
+(PM). Once the request is approved, an execution container
+is built on the selected PM. If the request is rejected, the
+PM is marked as infeasible. When some tasks have not been
+successfully assigned, the microservice controller queries PMs
+on a larger scale. We have taken first fit decreasing (FFD) as
+another baseline. FFD is used in many works in the existing
+literature [26], and it is a well-known heuristic for bin packing
+problem. In FFD, the containers are sorted in decreasing order
+of the size of the required resource. Then, FFD chooses the
+first server that is large enough to place the containers.

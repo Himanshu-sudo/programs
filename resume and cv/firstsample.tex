@@ -1,0 +1,232 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{multicol}
+% only for pdflatex
+% \input{glyphtounicode}
+
+% fontawesome
+\usepackage{fontawesome5}
+
+% fixed width
+\usepackage[scale=0.90,lf]{FiraMono}
+
+% light-grey
+\definecolor{light-grey}{gray}{0.83}
+\definecolor{dark-grey}{gray}{0.3}
+\definecolor{text-grey}{gray}{.08}
+
+\DeclareRobustCommand{\ebseries}{\fontseries{eb}\selectfont}
+\DeclareTextFontCommand{\texteb}{\ebseries}
+
+% custom underilne
+\usepackage{contour}
+\usepackage[normalem]{ulem}
+\renewcommand{\ULdepth}{1.8pt}
+\contourlength{0.8pt}
+\newcommand{\myuline}[1]{%
+  \uline{\phantom{#1}}%
+  \llap{\contour{white}{#1}}%
+}
+
+
+% custom font: helvetica-style
+\usepackage{tgheros}
+\renewcommand*\familydefault{\sfdefault} 
+%% Only if the base font of the document is to be sans serif
+\usepackage[T1]{fontenc}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{0in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting - serif
+% \titleformat{\section}{
+%   \vspace{2pt} \scshape \raggedright\large % header section
+% }{}{0em}{}[\color{black} \titlerule \vspace{-5pt}]
+
+% TODO EBSERIES
+% sans serif sections
+\titleformat {\section}{
+    \bfseries \vspace{2pt} \raggedright \large % header section
+}{}{0em}{}[\color{light-grey} {\titlerule[2pt]} \vspace{-4pt}]
+
+% only for pdflatex
+% Ensure that generate pdf is machine readable/ATS parsable
+% \pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-1pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & {\color{dark-grey}\small #2}\vspace{1pt}\\ % top row of resume entry
+      \textit{#3} & {\color{dark-grey} \small #4}\\ % second row of resume entry
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      #1 & {\color{dark-grey}} \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+% CHANGED default leftmargin  0.15 in
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0pt}}
+
+\color{text-grey}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge Himanshu Dhakate} \\ \vspace{5pt}
+    \small \faPhone* \texttt{+91-9325452858} \hspace{1pt} $|$
+    \hspace{1pt} \faEnvelope \hspace{2pt} \texttt{himanshudhakate07@gmail.com} \hspace{1pt} $|$ 
+    \hspace{1pt} \faMapMarker* \hspace{2pt}\texttt{Nagpur, Maharashtra}
+    \\ \vspace{-3pt}
+\end{center}
+
+%-----------EXPERIENCE-----------
+\section{EXPERIENCE}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Growthpal}{3-May-2021 -- 3-Aug-2021}
+      {SWE-Intern}{Pune,Maharashtra}
+      \resumeItemListStart
+        \resumeItem{Data aggregation , Processing Pipelines for Data Warehouse , Web-crawling.}
+        
+        
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Microsoft Technology Associate}{21-Jan-2019}
+      {Student Trainee}{Pune,Maharashtra}
+      \resumeItemListStart
+        \resumeItem{Cybersecurity , OS security , Network Security. }
+        
+
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+
+\section{PROJECTS}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Path Finding Visualizer}} {}
+          \resumeItemListStart
+            \resumeItem{Visualization and working of different path finding algorithms using beautiful animations.}
+	\resumeItem{Interface for user to select the position of start and end node and draw obstacles (that will be avoided).}
+            
+          \resumeItemListEnd
+          
+        \resumeProjectHeading
+          {\textbf{Controlled Conduct Employee System}}{}
+          \resumeItemListStart
+	\resumeItem{A distributed application, developed to maintain the details of employees working in any organization.}
+            \resumeItem{Streamlined daily operations.}
+            \resumeItem{Crucial work-related and important personal information about an employee. In a nutshell, it is an online inventory of all employees in an organization.}
+ 	
+          \resumeItemListEnd
+          
+      
+          
+    \resumeSubHeadingListEnd
+
+
+
+%-----------EDUCATION-----------
+\section {EDUCATION}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {NITK Surathkal}{2021 - Present}
+      {Mtech - Computer Science and Engineering}{}
+    \resumeSubheading
+      {D.Y. Patil College of Engineering, Pune}{2017 - 2021}
+      {BE - Information Technology}{}
+      	\resumeItemListStart
+    	\resumeItem {\textbf{CGPA}: 8.39 / 10}
+       
+        \resumeItemListEnd
+	
+  \resumeSubHeadingListEnd
+
+%-----------CERTIFICATIONS-----------
+\section {CERTIFICATIONS}
+ \begin{itemize}
+	\item \textbf{Microsoft Technology Associate} Security Fundamentals
+	\item \textbf{Python Programming} Udemy
+	\item \textbf{Java Programming} Udemy
+\end{itemize}
+
+
+
+%-------------------------------------------
+%-----------Achievements-----------
+\section {ACHIEVEMENTS}
+ \begin{itemize}
+\item \textbf{GATE AIR - 575}
+\item \textbf{TCS(NQT)} 1420.34/1800
+\item Passed \textbf{Microsoft Technology Associate} in Security Fundamentals
+\end{itemize}
+
+
+
+
+
+\end{document}

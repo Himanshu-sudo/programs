@@ -1,0 +1,18 @@
+\chapter{Conclusion}
+
+We have performed the container-based service state management to maximize the cloud data center’s consolidation ratio. In our proposed approach, the idle containers need to
+be checkpointed to save the hardware resources. However,
+after the end of the idle period, the containers need to be
+resumed from the last saved state. The idle containers are
+migrated to a new server if the current server does not have
+sufficient resources to run it. The problem of state management
+of the containers is formulated as an optimization problem that
+maximizes the consolidation ratio as the objective function. We
+have proposed a heuristic algorithm to solve the optimization.
+In order to save the state of an idle container, we have proposed
+a container checkpointing algorithm. Also, an algorithm is
+proposed for the resumption of idle containers when a request
+comes for these services. The evaluation in Amazon EC2
+shows that the proposed algorithm is able to maximize the
+consolidation ratio ensuring the state management of the containers. Thus, the proposed algorithm can efficiently manage
+the service state.

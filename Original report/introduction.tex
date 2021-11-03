@@ -1,0 +1,128 @@
+\chapter{Introduction}
+
+\section{Background and Recent Research}
+Containers [1] have emerged as an essential and effective alternative for hypervisor-based virtualization that complements
+the virtual machines (VMs) with a lightweight orchestration
+framework while providing an isolated, standalone, and reliable computing environment. Containers [2] can run over baremetals and within a VM, and therefore, it offers significant
+computation flexibility for application services deployment.
+Due to its low overhead, container-based virtualization supports higher consolidation (number of container-based virtual
+servers that can run over a host) compared to hypervisor-based
+virtualization [3]. Consequently, it promotes the dense deployment of user applications over a physical host machine [4]–[6].
+In a typical virtualized cloud environment, containers are a
+good candidate for deploying stateful application servers [7]
+like gaming servers, servers providing machine learning toolboxes like optical character recognition, speech processing,
+image processing, etc., augmented reality and virtual reality
+servers, and so on. These types of server applications have less dependency on the underlying operating system. Therefore,
+a containerized version of those application servers can be
+hosted on a cloud platform with less overhead. One typical
+nature of such application servers is that they get executed
+when some external client requests ask for services; otherwise,
+they keep running in an idle state. Therefore, the application
+server states can be checkpointed, and the server’s resources
+can be released temporarily for the best utilization of the
+hardware resources [8]. The application service can be resumed from the checkpoint when some external client requests
+come. Although such an approach can significantly improve
+the hardware utilization and the cloud environment’s energy
+efficiency, dynamic checkpointing for stateful containerized
+applications has two major challenges. 
+\begin{enumerate}[i]
+\item Different containers need to be checkpointed dynamically when they are idle, and their operations need
+to be resumed later from that state with minimum
+startup latency. Also, any partially processed data for
+the containerized application needs to be stored.
+\item During the restoration of a checkpointed service, sufficient hardware resources are not available at the original
+physical host, due to the dynamic application workload
+for various other services running over the same physical
+host. Therefore, there is a need to share the checkpointed
+state of the containers between different computing
+servers. Moreover, the checkpointed state needs to be
+migrated to a new server based on the demand for
+resuming the idle container when external client requests
+come for that application service.
+\end{enumerate}
+
+\subsection{Development}
+Therefore, we require to develop a method for dynamic
+checkpointing and restoration of containerized stateful application services so that the consolidation ratio increases.Therefore, we require to develop a method for dynamic
+checkpointing and restoration of containerized stateful application services so that the consolidation ratio increases.
+The consolidation ratio is defined as average number of
+virtual instances on each host [9]. In the proposed system,
+the virtual instances are containers. Accordingly, in this paper,
+we propose a dynamic container checkpointing and service
+migration [10], [11] strategy considering the dynamic application demands and workloads of a containerized stateful
+service. In order to solve the above-mentioned challenges, we
+formulate an optimization problem and propose a checkpoint
+based heuristic algorithm to solve the problem of container
+deployment. The objective function considers the increase of consolidation ratio. The major contributions of this work are:
+\begin{enumerate}[i]
+\item The service should go to checkpointed state by freeing
+the idle container’s consumed resources when no request
+is coming for that service. Other services that need to
+serve the clients are deployed dynamically after deallocating the idle containers. However, this management is
+challenging as there is a need to deallocate and allocate
+containers based on the container state dynamically.
+\item  To analyse the system’s performance, we have performed
+experiments in Amazon Elastic Compute Cloud (Amazon
+EC2) [12]. For this analysis, Amazon EC2 VMs are taken
+as the servers. We have considered docker [13] as the
+container engine and Checkpoint/Restore In Userspace
+(CRIU) [14] as the software to freeze a running container.
+Container state management is done by a shared storage
+and the docker checkpoint feature. The shared storage is
+created using a network file system (NFS) [15].
+\item Whenever the current server can not allocate the checkpointed container, the system supports migration of
+docker containers by moving the container’s state in a
+new server and starting the container there from the
+checkpointed state. The experimental results from Amazon EC2 show that the proposed system can increase the
+consolidation ratio.
+\end{enumerate}
+
+\subsection{Relatable Work}
+A number of works have focused on various aspects of
+the problem of container based service state management
+in the recent literature. In [7], the authors have provided a
+middleware to achieve high availability for cloud applications.
+The solution can compensate the limitations of linux containers in achieving high availability. They are monitoring the
+containers that hosts critical components and checkpoint its
+state. In case of a failure, the computation is resumed from
+the most recent state. The feasibility of their solution is verified
+using a case study. The authors in [16] have performed a
+container migration service. It is a filesystem-agnostic and
+vendoragnostic consistent full-system migration service. The
+work incorporates CRIU-based memory migration and focuses on minimizing the migration time. However, no service
+response time related analysis is present in this work. In
+order to do failure recovery of multi-tier stateful applications,
+Gomes et al. [17] have performed an evaluation of checkpoint
+services in both virtualized and physical environments. They
+have considered the checkpoint in application-level as well
+as in system-level. Though analysis of failover time is given,
+service response time is not considered. In [18], the authors
+have proposed elastic provisioning of virtual machines for
+containers deployment which takes into account the heterogeneity of containers requirements and computing resources.
+Their approach can determine the container deployment on
+virtual machines on-demand while optimizing quality of service (QoS) metrics. It evaluates the container deployment
+at runtime considering the QoS metrics. If it achieves an improvement based on the QoS metrics, a reconfiguration
+is planned. The authors in [19] have modeled the microservice based application (container) deployment problem to
+minimize total cost considering server capacity and service delay as the constraints. They have proposed a communication
+efficient framework and a suboptimal algorithm to determine
+container placement. In [20], the authors have developed
+hybrid autoscaling algorithms and a network scaling algorithm.
+The hybrid autoscaling algorithm provides high availability
+by horizontal scaling and fine-grained resource control by
+vertical scaling. The authors in [21] have solved the problem
+of container placement across heterogeneous infrastructure to
+minimize the overall energy consumption and balance the load
+of the hosts. The problem have been formulated as a multiobjective optimization problem. The authors have solved the
+problem based on an incremental exploration of the solution
+space. The works of [22] have introduced a resource allocation
+framework for the containerized deployment of microservices
+to reduce operating costs while providing a minimum guaranteed level of service. From the above discussion, we observe
+that the existing studies mostly look into the placement of
+the services along with migration needs. Our objective is to
+increase the consolidation ratio i.e. increase the number of
+containers per host.
+
+
+
+
+
