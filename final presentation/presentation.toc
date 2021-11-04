@@ -1,0 +1,15 @@
+\babel@toc {UKenglish}{}\relax 
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Problem Statement}{4}{0}{1}
+\beamer@subsectionintoc {1}{2}{Solution}{4}{0}{1}
+\beamer@sectionintoc {2}{System Architecture}{6}{0}{2}
+\beamer@subsectionintoc {2}{1}{Architecture Diagram}{7}{0}{2}
+\beamer@subsectionintoc {2}{2}{Docker Container}{7}{0}{2}
+\beamer@sectionintoc {3}{Service State Management of Containerized Applications}{10}{0}{3}
+\beamer@subsectionintoc {3}{1}{Average Startup Latency of the Services}{11}{0}{3}
+\beamer@subsectionintoc {3}{2}{Average Response Time of the Services}{11}{0}{3}
+\beamer@subsectionintoc {3}{3}{Constraints}{11}{0}{3}
+\beamer@sectionintoc {4}{Parameters In Amazon EC2 Experiment}{13}{0}{4}
+\beamer@sectionintoc {5}{Conclusion}{15}{0}{5}
+\beamer@sectionintoc {6}{References}{17}{0}{6}
+\beamer@sectionintoc {7}{THANK YOU}{20}{0}{7}
